@@ -267,7 +267,7 @@ class VentanaPrincipal:
 
         tk.Button(
             panel_izq,
-            text="Insert Node",
+            text="Add Node",
             command=self.accion_insertar,
             bg="#38bdf8",
             fg="#121212",
@@ -291,6 +291,17 @@ class VentanaPrincipal:
             panel_izq,
             text="Clear Tree",
             command=self.accion_limpiar,
+            bg="#f59e0b",
+            fg="#121212",
+            font=("Segoe UI", 10, "bold"),
+            relief="flat",
+            pady=6,
+        ).pack(fill="x", pady=(0, 6))
+
+        tk.Button(
+            panel_izq,
+            text="Exit",
+            command=self.accion_salir,
             bg="#cf6679",
             fg="#121212",
             font=("Segoe UI", 10, "bold"),
@@ -398,6 +409,9 @@ class VentanaPrincipal:
         self.camino_marcado.clear()
         self.actualizar_vista()
         messagebox.showinfo("Reinicio", "El arbol se ha limpiado.")
+
+    def accion_salir(self):
+        self.ventana.destroy()
 
     def actualizar_vista(self):
         total = self.arbol.cantidad_nodos
